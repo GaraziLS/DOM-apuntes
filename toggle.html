@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang='en'>
 <head>
@@ -28,4 +29,36 @@ button.addEventListener("click", (e) => {
     heading.classList.toggle("hidden") // pass class to toggle. Adds event listener to the button
 })
 </script>
+=======
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <title></title>
+</head>
+
+<style>
+  .hidden {
+    display: none;
+  }
+</style>
+<body>
+
+  <button id="toggleBtn">Toggle Me</button>
+
+  <div id="mainHeading" class="hidden">
+    Hi there
+  </div>
+
+</body>
+
+<script>
+const heading = document.getElementById("mainHeading") // stores heading (which has the hidden class) into a variable
+const button = document.getElementById("toggleBtn") //selects the button
+
+button.addEventListener("click", (e) => {
+    heading.classList.toggle("hidden") // pass class to toggle. Adds event listener to the button
+})
+</script>
+>>>>>>> 68893e12dc299b2f649d5809684a68074f485f8e
 </html>

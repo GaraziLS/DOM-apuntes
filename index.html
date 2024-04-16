@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 document: shows code on chrome console 
 * getElementByClass, ID: selects class and id. Select as ("String"), selecting ids with # works only with query selectors. (QuerySelectorAll returns a node list, so it's iterable with a for each loop) You can go down further by selecting indexes, children...
 
@@ -114,3 +115,121 @@ Toggler
 
 Window vs document: Document: html file / Window: browser window
 
+=======
+document: shows code on chrome console 
+* getElementByClass, ID: selects class and id. Select as ("String"), selecting ids with # works only with query selectors. (QuerySelectorAll returns a node list, so it's iterable with a for each loop) You can go down further by selecting indexes, children...
+
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <title></title>
+</head>
+
+<style>
+  .activeHeading {
+    color: firebrick;
+    font-size: 2em;
+    cursor: pointer;
+  }
+  .nonActiveHeading {
+    color: cornflowerblue;
+    font-size: 4em;
+    cursor: pointer;
+  }
+</style>
+<body>
+
+  <div id="mainHeading" class="nonActiveHeading">
+    Hi there
+  </div>
+
+</body>
+
+<script> 
+    const heading = document.getElementById("mainHeading") // Selects html and stores in a variable
+
+    heading.onclick = () => { //everytime heading is clicked the function is executed
+        if (heading.classList.contains('activeHeading')) { // if class contains active heading
+      heading.classList.remove('activeHeading');
+      heading.classList.add('nonActiveHeading'); // removes class, adds class
+    } else {
+      heading.classList.add('activeHeading');
+      heading.classList.remove('nonActiveHeading'); // same process of removing and adding but reversed
+    };
+  }
+
+
+  heading.onclick = () => {
+    if (heading.classList.contains('activeHeading')) {
+      heading.className = 'nonActiveHeading';
+    } else {
+      heading.className = 'activeHeading'; // same as above but changing the class name directly
+    };
+  }
+</script>
+
+Toggler
+
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <title></title>
+
+  <style>
+    .hideElement {
+      visibility: hidden;
+    }
+
+    .showElement {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="widget showElement">
+    <div class="mainHeading">
+      <h1>Hi there</h1>
+    </div>
+
+    <div class="subHeading">
+      My Amazing subheading...
+    </div>
+
+  </div>
+  <button onclick="contentToggle()">Toggle Content</button>
+</body>
+<script>
+  // const mainHeading = document.querySelector('.mainHeading');
+  // const headings = document.querySelectorAll('div');
+  const widget = document.querySelector('.widget');
+
+  function contentToggle() {
+    if (widget.classList.contains('showElement')) {
+      widget.classList.remove('showElement');
+      widget.classList.add('hideElement');
+    } else {
+      widget.classList.remove('hideElement');
+      widget.classList.add('showElement');
+    }
+  }
+
+  // function contentToggle() {
+  //   console.log(headings);
+  //   headings.forEach((heading) => {
+  //     if (heading.classList.contains('showElement')) {
+  //       heading.classList.remove('showElement');
+  //       heading.classList.add('hideElement');
+  //     } else {
+  //       heading.classList.remove('hideElement');
+  //       heading.classList.add('showElement');
+  //     }
+  //   });
+  // }
+</script>
+</html>
+
+Window vs document: Document: html file / Window: browser window
+
+>>>>>>> 68893e12dc299b2f649d5809684a68074f485f8e
