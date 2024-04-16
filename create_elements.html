@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <title></title>
+</head>
+
+<body>
+  <div class="widget">
+    <input type= "text" id = "ChatInput"></input>
+    <button id="msgBtn">Submit</button>
+    <div class="chat-wrapper"></div>
+  </div>
+
+  <div id='parent'></div> <!-- Add a paragraph tag inside the parent that has the text content: Hello-->
+</body>
+
+<script>
+    function sendMsg() {
+        const newDiv = document.createElement("div"); // creates div
+        newDiv.classList.add("ChatMsg") // adds a class
+        let chatInput = document.querySelector("#ChatInput").value // selects input's value
+        const newContent = document.createTextNode(chatInput) // creates text node, converting into a js object
+        newDiv.appendChild(newContent) // appends Child to NewContent
+
+        const widget = document.querySelector(".widget")
+        let chatWrapper = querySelector("#msgBtn")
+        document.querySelector("#chat-input").value = "" // cleans input
+    }   
+
+        if (document.querySelectorAll(".chatMsg").length > 0) {
+            chatWrapper = document.querySelectorAll(".chat-wrapper")[0]
+            
+            widget.insertBefore(newDiv, chatWrapper)
+        }
+
+    // exercise
+
+ const parentElement = document.getElementById('parent'); // grabs parent
+const paragraph = document.createElement('p'); // creates paragraph
+paragraph.textContent = 'Hello'; // modifies paragraph's content
+parentElement.appendChild(paragraph); // appends paragraph to parent      
+            
+</script>
+
+
+
+</html>
+
