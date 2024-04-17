@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <title></title>
+</head>
+
+<body>
+  <div class="widget">
+    <input type= "text" id = "ChatInput"></input>
+    <button id="msgBtn">Submit</button>
+    <button onclick="clearMessages()">Clear Messages</button>
+    <div class="chat-wrapper"></div>
+  </div>
+<!-- exercise -->
+  <div id='parent'></div> <!-- Add a paragraph tag inside the parent that has the text content: Hello-->
+</body>
+
+<script>
+    function sendMsg() {
+        const newDiv = document.createElement("div"); // creates div
+        newDiv.classList.add("ChatMsg") // adds a class
+        let chatInput = document.querySelector("#ChatInput").value // selects input's value
+        const newContent = document.createTextNode(chatInput) // creates text node, converting into a js object
+        newDiv.appendChild(newContent) // appends Child (NewContent) to the div
+
+        const widget = document.querySelector(".widget")
+        let chatWrapper = querySelector("#msgBtn")
+        document.querySelector("#chat-input").value = "" // cleans input
+    }   
+
+        if (document.querySelectorAll(".chatMsg").length > 0) {
+            chatWrapper = document.querySelectorAll(".chat-wrapper")[0]
+            
+            widget.insertBefore(newDiv, chatWrapper)
+        }
+
+      function clearMessages() {
+    const messages = document.querySelectorAll('.chatMsg')};
+    messages.forEach(el => el.remove());
+
+    // exercise
+
+ const parentElement = document.getElementById('parent'); // grabs parent
+const paragraph = document.createElement('p'); // creates paragraph
+paragraph.textContent = 'Hello'; // modifies paragraph's content
+parentElement.appendChild(paragraph); // appends paragraph to parent      
+            
+</script>
+
+
+
+</html>
+
+<!-- In brief: createElement to create elements, createTextNode to transform it into a js object, appendChild to the parent and pass the element which will be appended. 
+To remove, use the remove() method after looping each element. -->
+
+<!-- Second exercise: Remove all elements with the class name of post. Then inside the wrapper add a p tag that has a class name of flash-message and says "Posts coming soon!" -->
+
+<div class="post-wrapper">
+  <div class="post"></div>
+  <div class="post"></div>
+  <div class="post"></div>
+</div>
+
+<script>
+let posts = document.querySelectorAll(".post"); // selects posts
+posts.forEach(post => post.remove()); // loops each post and removes elements
+
+let wrapper = document.querySelector(".post-wrapper"); 
+const paragraph = document.createElement("p"); // creates paragraph
+paragraph.classList.add("flash-message"); // adds class
+paragraph.textContent = "Posts coming soon!"; // adds text to the element
+wrapper.appendChild(paragraph); // appends element to the parent
+</script>
