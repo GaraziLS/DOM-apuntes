@@ -31,21 +31,17 @@
 </body>
 
 <script>
-    let items = document.querySelectorAll("li, .todoItem") // selects items class
-    Array.from(items).forEach(() => { // loops through each item
-        return items.addEventListener("click", RemoveItems()) // adds event. On click, the function will execute.
-    })
-
-    // function to remove items
-
-    function RemoveItems() {
-        return items.remove()
-    }
-
-    // adding items to the completed TODOs
-
-    const completedItems = document.querySelector(".completed") // selects completed class
-    completedItems.appendChild(items) // adds elements to the parent class
+    const items = document.querySelectorAll('.todoItem') // selects items class
+    const completedItems = document.querySelector('.completed') // selects completed class
+    const Wrapper = document.querySelector('.completedTodoWrapper') // selects wrapper
+     
+    items.forEach(item => item.addEventListener('click', (event) => { // loops through each item and adds event. 
+      let completedTodo = document.createElement('li'); // create a li element each time an item is clicked
+      let TodoContent = document.createTextNode(item.textContent); // creates text node inside the created element, then adds the item.
+      completedTodo.appendChild(TodoContent); // appends the text node to the created element
+      Wrapper.insertBefore(completedTodo, completedItems); // inserts li elements inside the completed class
+      item.remove(); // function to remove items
+      }))
 </script>
 
 </html>
